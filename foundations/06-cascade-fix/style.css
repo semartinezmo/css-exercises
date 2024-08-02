@@ -7,36 +7,46 @@ body {
   color: hsl(0, 0%, 0%);
   font-weight: 800;
 }
-
-.small-para {
-  font-size: 14px;
-  font-weight: 800;
-}
+/* this is correct because it applies bold text to both .para - paragraph and small-para */
 
 .para {
   font-size: 22px;
 }
+/* This is correct, moved it up to avoid .small-para taking its parent font-size */
+
+.small-para {
+  font-size: 14px;
+}
+/* this is correct but the class above already sets the font-weight so it's not needed twice so I removed it*/
 
 .confirm {
   background: green;
   color: white;
   font-weight: bold;
-} 
+  font-size: 20px;
+}
+/* this is correct but there is also the id confirm-button, the only thing missing is an appropiate font-size which I coppied from .button.cancel so it is the same size */
 
-.button {
+.button.cancel {
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   font-size: 20px;
 }
+/* both #confirm-button and #cancel-button share the .button class so this is conflicting, changed from .button to .button.cancel so it only gets applied to the second button*/
 
-.child {
-  color: rgb(0, 0, 0);
-  font-weight: 800;
-  font-size: 14px;
-}
-
-div.text {
+.text {
   color: rgb(0, 0, 0);
   font-size: 22px;
   font-weight: 100;
 }
+
+/* this is chaining divs with the class text, which is causing a conflict with the child because it inherits from its parent */
+
+.text > .child {
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+  font-size: 14px;
+}
+/* this class is supposed to be smaller than 22px (14px) and with bold text, so this class selector is okay, I just changed it so it only gets applied to .text > .child elements */
+
+/* now is exactly the same as the desired-outcome */
