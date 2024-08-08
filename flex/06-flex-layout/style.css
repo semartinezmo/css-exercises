@@ -1,26 +1,98 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+* {
+  box-sizing: border-box;
+}
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+/* added flex column to space items vertically */
 body {
   height: 100vh;
   margin: 0;
   overflow: hidden;
   font-family: Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+/* added flex and padding to header */
+.header {
+  display: flex;
+  flex: 0 0 50px;
+  padding: 1.2em;
+}
+/* styled ul elements and added gap */
+ul {
+  list-style: none;
+  gap: 1em;
+}
+/* removed hyperlink and inherited color of parent to remove blue color */
+ul a {
+  text-decoration: none;
+  color: inherit;
+}
+/* created class and added flex to distribute elements in a row and space it, I also removed default padding */
+.left-links {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  padding: 0;
+}
+/* same thing as above, only difference is that this is justified to the flex-end, I also removed default padding*/
+.right-links {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  padding: 0;
+}
+/* added flex 1 to space content div and added align content to center it */
+.content {
+  flex: 1;
+  justify-content: center;
+  align-content: center;
+}
+/* created this div to make the container of the img into a flex element and align it to the center */
+.img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 img {
   width: 600px;
 }
-
+/* centered input div with flex and added some top margin */
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5em;
+}
+/* increased width to 500px instead */
+input {
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 8px 24px;
+  width: 500px;
+}
+/* added flex, centered div, added gap between elements to space each button and added margin top */
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  margin-top: 1em;
+}
+/* changed border radius to make it more rectangular, added custom height and width */
 button {
   font-family: Roboto, sans-serif;
   border: none;
   border-radius: 8px;
   background: #eee;
+  height: 40px;
+  width: 140px;
 }
-
-input {
-  border: 1px solid #ddd;
-  border-radius: 16px;
-  padding: 8px 24px;
-  width: 400px;
+/* added background color requested, flex and padding */
+.footer {
+  background-color: #eeeeee;
+  display: flex;
+  padding: 0.5em 0.8em;
+  flex: 0 0 50px;
 }
